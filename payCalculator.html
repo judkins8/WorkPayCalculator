@@ -1,0 +1,61 @@
+<!--
+    Joshua Judkins
+-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pay Calculator</title>
+</head>
+<body>
+    <script>
+        /*
+        <15% is $10/host
+        15-20% is $20/host
+        20%+ is $25/host
+        */
+        
+        var iSales = 0;
+        var fHours;
+        var fHourlyWage;
+        var fWeeklyIncome;
+        var iClosedDeals;
+        var iPayTier;
+        var fHourlyIncome;
+        var iSalesIncome = 0;
+
+
+        iSales = parseInt(prompt("How many sales did you get this week? "));
+        iClosedDeals = parseInt(prompt("How many deals did you close? (including completed)"));
+        fHours = parseFloat(prompt("How many hours did you work this week? (e.g. 5.5)"));
+        fHourlyWage = parseFloat(prompt("What is your hourly wage? (e.g. 9.75)"));
+        
+        iPayTier = iSales / iClosedDeals;
+
+        if (iPayTier < .15)
+        {
+            iSalesIncome = iSales * 10;
+        }
+        else if (iPayTier < .20)
+        {
+            iSalesIncome = iSales * 20;
+        }
+        else 
+        {
+            iSalesIncome = iSales * 25;
+        }
+
+        fHourlyIncome = fHourlyWage * fHours;
+
+        fWeeklyIncome = fHourlyIncome + iSalesIncome;
+
+        alert("You made $" + iSalesIncome + " in sales");
+        alert("You made $" + fHourlyIncome + " in hourly wage");
+        alert("You made a total of $" + fWeeklyIncome + " this week");
+        
+
+    </script>
+</body>
+</html>
